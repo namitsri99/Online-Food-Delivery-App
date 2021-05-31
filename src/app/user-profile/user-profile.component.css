@@ -1,0 +1,39 @@
+/*For styling of user profile*/
+img{
+    width: 50%;
+    height: 50%;
+    margin-left: 23%;
+}
+.button {
+    background-color: white; /* Green */
+    border: none;
+    color: #4CAF50;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 42%;
+    border-radius: 5px;
+  }
+  
+  .button1 {
+    background-color: #4CAF50; 
+    color: white; 
+    border: 2px solid #4CAF50;
+  }
+  
+  .button1:hover {
+    background-color: white;
+    color:black;
+  }
+
+  a{
+      color: white;
+  }
+  a:hover{
+      color: black;
+  }

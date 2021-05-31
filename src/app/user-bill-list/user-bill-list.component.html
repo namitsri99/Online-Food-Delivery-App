@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Bill List</h3>
+    <!-- For displaying the message during loading -->
+    <app-msgbox *ngIf="!err && !userBills">
+        <strong>Loading... Please Wait....</strong>
+    </app-msgbox>
+    <!-- For displaying the message when data cannot be retrieved -->
+    <app-msgbox *ngIf="err" [isError]="true">
+        <strong>{{ err }}</strong>
+    </app-msgbox>
+
+    <table class="table table-bordered table table-success table-striped table-hover" *ngIf="userBills">
+        <thead class="table-dark">
+            <!-- Specifying the respective coloumn headings -->
+            <tr>
+                <th>Bill ID</th>
+                <th>Bill Date</th>
+                <th>Bill Details </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- For displaying data into respective fields of table -->
+            <tr *ngFor="let b of userBills">
+                <td>{{ b.billId }} </td>
+                <td>{{ b.billDate }}</td>
+                <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/ubills/billList/{{ b.billId }}" >View Bill Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

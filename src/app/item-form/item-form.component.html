@@ -1,0 +1,79 @@
+<!-- Defining div class -->
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Edit" : "New"}} Item</h3>
+
+    <form class="form" [formGroup]="itemform" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <!-- Adding respective form-control-label  -->
+            <label class="form-control-label">Item Id:</label>
+            <input type="number" formControlName="itemId" class="form-control"  /> 
+        </div>
+
+
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Item Name:</label>
+            <input type="text" formControlName="itemName" class="form-control" />
+            <div class="alert alert-danger" *ngIf="itemNamefc.invalid && (itemNamefc.touched || itemNamefc.dirty)">
+                <span *ngIf="itemNamefc.errors.required">This field is mandate</span>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+                <label class="form-control-label">Category:</label>
+                <input type="text" formControlName="catId" class="form-control" />
+                <div class="alert alert-danger" *ngIf="categoryfc.invalid && (categoryfc.touched || categoryfc.dirty)">
+                    <span *ngIf="categoryfc.errors.required">This field is mandate</span>
+                </div>
+
+        </div>
+
+         <div class="form-group">
+             <!-- Adding respective form-control-label and performing validations -->
+                <label class="form-control-label"> Quantity</label>
+                <input type="number" formControlName="quantity" class="form-control" />
+                <div class="alert alert-danger" *ngIf=" quantityfc.invalid && ( quantityfc.touched ||  quantityfc.dirty)">
+                     <span *ngIf=" quantityfc.errors.required">This field is mandate</span>
+                </div>
+
+        </div>
+
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+                <label class="form-control-label"> Cost</label>
+                <input type="number" formControlName="cost" class="form-control" />
+                <div class="alert alert-danger" *ngIf=" costfc.invalid && ( costfc.touched ||  costfc.dirty)">
+                        <span *ngIf="costfc.errors.required">This field is mandate</span>
+                </div>
+
+        </div>
+
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+                <label class="form-control-label">Food Cart:</label>
+                <input type="number" formControlName="cartId" class="form-control" />
+                <div class="alert alert-danger" *ngIf=" cartIdfc.invalid && ( cartIdfc.touched ||  cartIdfc.dirty)">
+                         <span *ngIf="cartIdfc.errors.required">This field is mandate</span>
+                </div>
+        </div>
+
+        <!-- Creating a Save button for saving the entries  -->
+        <button class="btn btn-block btn-primary" [disabled]="itemform.invalid">
+                        Save
+        </button>
+
+
+    </form>
+               
+</div>
+
+        
+        
+        
+        
+        
+        
+        
+       

@@ -1,0 +1,53 @@
+<head>
+    <meta charset="UTF-8">
+    <script src="https://use.fontawesome.com/3903c9d7fd.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="head"><a  routerLink="/userHeader/dashboard" class="navbar-brand text-info"><h1><i class="fa fa-coffee"> Online Food Delivery Application</i></h1></a></div>
+<nav class="navbar">
+    
+ 
+<ul  class="menu navbar-nav">
+    <!-- For displaying Order option in navbar -->
+    <li style="opacity: 100%;" class="menu_list nav-item">
+        <i class="front fa fa-list" aria-hidden="true"></i>
+        <a routerLink="/userHeader/uorders"  class="side nav-link ">Orders</a>
+    </li>
+    <!-- For displaying Cart option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-shopping-cart"></span>
+        <a routerLink="/userHeader/ucarts"  class="side nav-link">Cart</a>
+    </li>
+    <!-- For displaying Items option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-briefcase"></span>
+        <a routerLink="/userHeader/uitems" class="side nav-link">Items</a>
+    </li>
+    <!-- For displaying Bills option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-rupee-sign"></span>
+        <a routerLink="/userHeader/ubills" class="side nav-link">Bills</a>
+    </li>
+    <!-- For displaying Restaurants option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-pizza-slice"></span>
+        <a routerLink="/userHeader/urestaurants" class="side nav-link">Restaurants</a>
+    </li>
+    <!-- For displaying Update Info. option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-info"></span>
+        <a routerLink="/userHeader/ucustomer"  class="side nav-link">Update Info</a>
+    </li>
+    <!-- For displaying SignOut option in navbar -->
+    <li class="menu_list nav-item">
+        <span class="front fas fa-sign-out-alt"></span>
+        <a (click)="signOut()"  class="side nav-link">Sign Out</a>
+    </li>
+    
+</ul>
+</nav>
+</body>
+
+<router-outlet></router-outlet>

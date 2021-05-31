@@ -1,0 +1,41 @@
+
+<h3 align="center">Item List</h3>
+<!-- For displaying the message during loading -->
+ <app-msgbox *ngIf="err && !uitems">
+    <strong >loading.... please wait....</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{err}}</strong>
+</app-msgbox> 
+<div class="container">
+<table class="table table-bordered table table-success table-striped table-hover" *ngIf=uitems>
+    <thead class="table-dark">
+        <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <th>Item Id</th>
+            <th>Item Name</th>
+            <!-- <th>Quantity</th> -->
+            <th>Cost</th>
+            <th> Action</th>
+           
+            
+           
+        
+        </tr>
+    </thead> 
+    <tbody>
+        <!-- For displaying data into respective fields of table -->
+        <tr *ngFor="let i of uitems">
+            <td>{{i.itemId}}</td>
+            <td>{{i.itemName}}</td>
+           
+            <!-- <td>{{i.quantity}}</td> -->
+            <td>{{i.cost}}</td>
+            <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/uitems/restaurantList/{{ i.itemName }}" >View All Restaurant</button></td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+</div>

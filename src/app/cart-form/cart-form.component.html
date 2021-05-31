@@ -1,0 +1,25 @@
+<!-- Defining div class -->
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Edit" : "New"}} Cart</h3>
+
+    <form class="form" [formGroup]="cartForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <!-- Adding respective form-control-label  -->
+            <label class="form-control-lable">Cart Id:</label>
+            <input type="number" formControlName="cartId" class="form-control">
+        </div>
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Customer Id:</label>
+            <input type="number" formControlName="customerId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+                <span *ngIf="customerIdfc.errors.required">This field is mandate</span>
+            </div>
+        </div>
+        <!-- Creating a Save button for saving the entries  -->
+        <button class="btn btn-block btn-primary" [disabled]="cartForm.invalid">
+            Save
+        </button>
+    </form>
+</div>
+

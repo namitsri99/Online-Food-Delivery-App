@@ -1,0 +1,34 @@
+<!-- Defining div class -->
+<div class="container">
+<h3>Category List</h3>
+<!-- For displaying the message during loading -->
+<app-msgbox *ngIf="!err && !categories">
+    <strong>loading ... please wait ...</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{err}}</strong>
+</app-msgbox>
+
+<table class="table table-bordered table table-success table-striped table-hover" *ngIf="categories">
+    <thead class="table-dark" align="center">
+        <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>        
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of categories">
+            <!-- For displaying data into respective fields of table -->
+            <td>{{ c.catId }} </td>
+            <td>{{ c.categoryName }} </td>
+            <!-- Delete button to delete a particular entry -->
+            <td><button class="btn btn-sm btn-danger" (click)="delete(c.catId)">Delete</button></td>
+            <!-- Edit button to edit a particular entry -->
+            <td><a class="btn btn-sm btn-info" routerLink="/header/categories/edit/{{c.catId}}">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>

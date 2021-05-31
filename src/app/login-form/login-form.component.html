@@ -1,0 +1,87 @@
+<!-- <div class="col-sm-6 mx-auto">
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+        <h1> Login Details </h1>
+        <small class="text-danger">{{ msg }}</small>
+    <div class="form-group">
+        <label class="form-control-label">User Name:</label>
+        <input type="text" formControlName="userName" class="form-control" />
+        <div class="alert alert-danger" *ngIf="userNamefc.invalid && (userNamefc.touched || userNamefc.dirty)">
+            <span *ngIf="userNamefc.errors.pattern">This field should be valid</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-control-label">Password:</label>
+        <input type="password" formControlName="password" class="form-control" />
+        <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+            <span *ngIf="passwordfc.errors.pattern">This field should be valid</span>
+        </div>
+    </div>
+
+    <button class="btn btn-block btn-primary" [disabled]="loginForm.invalid">
+        Login
+    </button>
+    &nbsp;&nbsp;&nbsp;
+    <a routerLink="/login/add">
+    <button class="btn btn-block btn-primary">
+        Register?
+
+    </button>New user</a>
+
+    
+    </form>
+</div> -->
+
+
+
+
+
+<body>
+    <div class="signin">
+      <div class="back-img">
+        <div class="sign-in-text">
+          <h2 class="active">Sign in</h2>
+          <h2 class="nonactive" routerLink="/login/add">Register</h2>
+        </div><!--/.sign-in-text-->
+        <div class="layer">
+        </div><!--/.layer-->
+        <p class="point">&#9650;</p>
+      </div><!--/.back-img-->
+      <div class="form-section">
+       
+        <form  class="form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+            <small class="text-danger">{{ msg }}</small>
+          <!--Email-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <!-- <label class="mdl-textfield__label"  class="form-control-label" >User Name</label> -->
+            <input class="mdl-textfield__input" type="text" formControlName="userName" class="form-control" placeholder="User Name" >
+            <div class="alert alert-danger" *ngIf="userNamefc.invalid && (userNamefc.touched || userNamefc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="userNamefc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <!--Password-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <!-- <label  class="mdl-textfield__label"  class="form-control-label">Password</label> -->
+            <input  class="mdl-textfield__input" type="password" formControlName="password" class="form-control" placeholder="Password">
+            <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+                <span  *ngIf="passwordfc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+          <br/>
+        
+      <!--/.form-section-->
+      
+      <button id="loginButton"  class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" class="btn btn-block btn-primary"  [disabled]="loginForm.invalid">
+        Login
+      </button><!--/button-->
+    </form>
+      </div>
+
+   </div><!--/.signin-->
+  </body>
+
+
+

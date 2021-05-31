@@ -1,0 +1,33 @@
+<div class="container">
+    <h3>Cart List</h3>
+    <!-- For displaying message during loading -->
+<app-msgbox *ngIf="!err && !crt">
+    <strong>loading ... please wait ...</strong>
+</app-msgbox>
+<!-- For displaying message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{err}}</strong>
+</app-msgbox>
+    <table class="table table-bordered table table-success table-striped table-hover" *ngIf="crt">
+        <thead class="table-dark">
+            <!-- Specifying the respective coloumn headings -->
+            <tr>
+                <th>Cart ID</th>
+                <th>Customer Id</th>
+                <th colspan="2">Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of crt">
+                <!-- For displaying data of respective fields of table -->
+                <td>{{ c.cartId }} </td>
+                <td>{{ c.customerId }} </td>
+                <!-- Delete button to delete a particular entry  -->
+                <td><button class="btn btn-sm btn-danger" (click)="delete(c.cartId)">Delete</button></td>
+                <!-- Edit button to edit a particular entry  -->
+                <td><a class="btn btn-sm btn-info" routerLink="/header/carts/edit/{{c.cartId}}">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

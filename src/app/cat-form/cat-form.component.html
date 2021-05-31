@@ -1,0 +1,29 @@
+<!-- Defining div class -->
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Edit" : "New"}} Category</h3>
+    
+    <form class="form" [formGroup]="catForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <!-- Adding respective form-control-label -->
+            <label class="form-control-label">category Id:</label>
+            <input type="number" formControlName="catId" class="form-control" 
+            />
+            <!-- <div class="alert alert-danger" *ngIf="empIdfc.invalid && (empIdfc.touched || empIdfc.dirty)">
+                <span *ngIf="empIdfc.errors.required">This field is mandate</span>
+            </div> -->
+        </div>
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">category Name:</label>
+            <input type="text" formControlName="categoryName" class="form-control" />
+            <div class="alert alert-danger" *ngIf="categoryNamefc.invalid && (categoryNamefc.touched || categoryNamefc.dirty)">
+                <span *ngIf="categoryNamefc.errors.required">This field is mandate</span>
+                <span *ngIf="categoryNamefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+        <!-- Creating a Save button for saving the entries  -->
+        <button class="btn btn-block btn-primary" [disabled]="catForm.invalid">
+            Save
+        </button>
+    </form>
+</div>

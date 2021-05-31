@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Restaurants List</h3>
+    <!-- For displaying the message during loading -->
+    <app-msgbox *ngIf="!err && !urestaurants">
+        <strong>Loading... Please Wait....</strong>
+    </app-msgbox>
+    <!-- For displaying the message when data cannot be retrieved  -->
+    <app-msgbox *ngIf="err" [isError]="true">
+        <strong>{{ err }}</strong>
+    </app-msgbox>
+
+    <table class="table table-bordered table table-success table-striped table-hover" *ngIf="urestaurants">
+        <thead class="table-dark">
+            <!-- Specifying the respective coloumn headings -->
+            <tr>
+                <!-- <th>Restaurants ID</th> -->
+                <th>Restaurant Name</th>
+                <th>Manager Name</th>
+                <th>Phone Number</th>
+                <th>Restaurant Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- For displaying data into respective fields of table -->
+            <tr *ngFor ="let r of urestaurants">
+                <!-- <td>{{ urestaurants.restaurantId }} </td> -->
+                <td>{{ r.restaurantName }}</td>
+                <td>{{ r.managerName }}</td>
+                <td>{{ r.contactNumber }}</td>
+                <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/urestaurants" >View Restaurant Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

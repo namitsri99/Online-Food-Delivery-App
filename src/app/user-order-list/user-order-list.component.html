@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Order List</h3>
+    <!-- For displaying the message during loading -->
+    <app-msgbox *ngIf="!err && !userOrd">
+        <strong>Loading... Please Wait....</strong>
+    </app-msgbox>
+    <!-- For displaying the message when data cannot be retrieved -->
+    <app-msgbox *ngIf="err" [isError]="true">
+        <strong>{{ err }}</strong>
+    </app-msgbox>
+
+    <table class="table table-bordered table table-success table-striped table-hover" *ngIf="userOrd">
+        <thead class="table-dark">
+            <!-- Specifying the respective coloumn headings -->
+            <tr>
+                <th>Order ID</th>
+                <th>Order Date</th>
+                <th>Order Details </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- For displaying data into respective fields of table -->
+            <tr *ngFor="let o of userOrd">
+                <td>{{ o.orderId }} </td>
+                <td>{{ o.orderDate }}</td>
+                <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/uorders/orderList/{{ o.orderId }}" >View Order Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

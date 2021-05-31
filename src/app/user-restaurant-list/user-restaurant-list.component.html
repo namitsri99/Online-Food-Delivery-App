@@ -1,0 +1,70 @@
+<div class="container">
+  <h3>Restaurant List</h3>
+  <!-- For displaying the message during loading -->
+<app-msgbox *ngIf="!err && !urestaurants">
+    <strong>Loading... Please Wait....</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="..." alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide">
+      </div>
+    </div>
+  </div> -->
+
+<table striped="true" bordered="true" class="table table-bordered table table-success table-striped table-hover" *ngIf=urestaurants>
+    <thead class="table-dark">
+      <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <!-- <th>Restaurant ID</th> -->
+            <th>RestaurantName</th>
+            <!-- <th>Item List</th> -->
+            <th>Manager Name</th>
+            <th>Contact Number</th>
+            <th>Area</th>
+            <th>BuildingName</th>
+            <th>City</th>
+            <th>Street Number</th>
+            <th>PostalCode</th>
+            <th>State</th>
+            <th>Country</th>
+            <!-- <th> Action</th> -->
+            
+           
+        </tr>
+    </thead> 
+    <tbody>
+      <!-- For displaying data into respective fields of table -->
+        <tr *ngFor="let r of urestaurants">
+            <!-- <td>{{r.restaurantId}}</td> -->
+            <td>{{r.restaurantName}}</td>
+            <!-- <td>{{r.itemId}}</td> -->
+            <td>{{r.managerName}}</td>
+            <td>{{r.contactNumber}}</td>
+            <td>{{r.address.area}}</td>
+            <td>{{r.address.buildingName}}</td>
+            <td>{{r.address.city}}</td>
+            <td>{{r.address.streetNo}}</td>
+            <td>{{r.address.pincode}}</td>
+            <td>{{r.address.state}}</td>
+            <td>{{r.address.country}}</td>
+            <!-- <td><button class="btn btn-sm btn-danger" routerLink="/restaurantById">View Restaurant</button></td> -->
+
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+

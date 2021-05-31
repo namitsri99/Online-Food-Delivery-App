@@ -1,0 +1,132 @@
+<!-- Defining div class -->
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Edit" : "New"}} Restaurant</h3>
+
+    <form class="form" [formGroup]="restform" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <!-- Adding respective form-control-label -->
+            <label class="form-control-label">Restaurant Id:</label>
+            <input type="number" formControlName="restaurantId" class="form-control"  /> 
+        </div>
+        
+    
+    <div class="form-group">
+        <!-- Adding respective form-control-label and performing validations -->
+        <label class="form-control-label">RestaurantName:</label>
+        <input type="text" formControlName="restaurantName" class="form-control" />
+        <div class="alert alert-danger" *ngIf="restaurantNamefc.invalid && (restaurantNamefc.touched || restaurantNamefc.dirty)">
+            <span *ngIf="restaurantNamefc.errors.required">This field is mandate</span>
+        </div>
+        </div>
+
+     <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">ItemList</label>
+            <input type="number" formControlName="itemId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="itemIdfc.invalid && (itemIdfc.touched || itemIdfc.dirty)">
+                <span *ngIf="itemIdfc.errors.required">This field is mandate</span>
+         </div>
+         </div>
+
+         <div class="form-group">
+             <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Manager Name:</label>
+            <input type="text" formControlName="managerName" class="form-control" />
+            <div class="alert alert-danger" *ngIf="managerNamefc.invalid && (managerNamefc.touched || managerNamefc.dirty)">
+                <span *ngIf="managerNamefc.errors.required">This field is mandate</span>
+         </div>
+         </div>
+    
+     <div class="form-group">
+              <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Contact Number:</label>
+            <input type="number" formControlName="contactNumber" class="form-control"  /> 
+            <div class="alert alert-danger" *ngIf="contactNumberfc.invalid && (contactNumberfc.touched || contactNumberfc.dirty)">
+                <span *ngIf="contactNumberfc.errors.required">This field is mandate</span>
+                <span *ngIf="contactNumberfc.errors.minLength">Minimum 10 characters expected</span>
+        </div>
+        </div>
+
+        
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Building Name:</label>
+            <input type="text" formControlName="buildingName" class="form-control" />
+            <div class="alert alert-danger" *ngIf="buildingNamefc.invalid && (buildingNamefc.touched || buildingNamefc.dirty)">
+                <span *ngIf="buildingNamefc.errors.required">This field is mandate</span>
+                <span *ngIf="buildingNamefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+             <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Area:</label>
+            <input type="text" formControlName="area" class="form-control" />
+            <div class="alert alert-danger" *ngIf="areafc.invalid && (areafc.touched || areafc.dirty)">
+                <span *ngIf="areafc.errors.required">This field is mandate</span>
+                <span *ngIf="areafc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+             <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Street Name:</label>
+            <input type="text" formControlName="streetNo" class="form-control" />
+            <div class="alert alert-danger" *ngIf="streetNofc.invalid && (streetNofc.touched || streetNofc.dirty)">
+                <span *ngIf="streetNofc.errors.required">This field is mandate</span>
+                <span *ngIf="streetNofc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">City :</label>
+            <input type="text" formControlName="city" class="form-control" />
+            <div class="alert alert-danger" *ngIf="cityfc.invalid && (cityfc.touched || cityfc.dirty)">
+                <span *ngIf="cityfc.errors.required">This field is mandate</span>
+                <span *ngIf="cityfc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+              <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">State</label>
+            <input type="text" formControlName="state" class="form-control" />
+            <div class="alert alert-danger" *ngIf="statefc.invalid && (statefc.touched || statefc.dirty)">
+                <span *ngIf="statefc.errors.required">This field is mandate</span>
+                <span *ngIf="statefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+              <!-- Adding respective form-control-label using drop down list and performing validations -->
+            <label class="form-label">Select Country:</label>
+            <select class="form-control" formControlName="country">
+              <option >--Select--</option>
+              <option value="USA">USA</option>
+              <option value="INDIA">INDIA</option>
+              <option value="CANADA">CANADA</option>
+              <option value="EUROPE">EUROPE</option>
+              <option value="CHINA">CHINA</option>
+            
+            </select>
+        </div>
+
+        <div class="form-group">
+              <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Pincode</label>
+            <input type="text" formControlName="pincode" class="form-control" />
+            <div class="alert alert-danger" *ngIf="pincodefc.invalid && (pincodefc.touched || pincodefc.dirty)">
+                <span *ngIf="pincodefc.errors.required">This field is mandate</span>
+                <span *ngIf="pincodefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+
+        <!-- Creating a Save button for saving the entries  -->
+         <button class="btn btn-block btn-primary" [disabled]="restform.invalid">
+            Save
+        </button>
+        </form>
+    
+
+

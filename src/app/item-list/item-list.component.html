@@ -1,0 +1,44 @@
+<div class="container">
+<h3>Item List</h3>
+<!-- For displaying the message during loading -->
+<app-msgbox *ngIf="!err && !items">
+    <strong>Loading... Please Wait....</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved-->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+<table align="center" class="table table-bordered table table-success table-striped table-hover" *ngIf=items>
+    <thead class="table-dark">
+        <!-- Specifying the respective coloumn headings -->
+        <tr >
+            <th>Item Id</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>FoodCart</th>
+            <th colspan="2"> Action</th>
+           
+        
+        </tr>
+    </thead> 
+    <tbody>
+        <!-- For displaying data into respective fields of table -->
+        <tr *ngFor="let i of items">
+            <td>{{ i.itemId }}</td>
+            <td>{{ i.itemName }}</td>
+            <td>{{ i.catId }}</td>
+            <td>{{ i.quantity }}</td>
+            <td>{{ i.cost }}</td>
+            <td>{{ i.cartId }}</td>
+            
+            <!-- Delete button to delete a particular entry -->
+            <td><button class="btn btn-sm btn-danger" (click)="delete(i.itemId)">Delete</button></td>
+            <!-- Edit button to edit a particular entry -->
+            <td><a class="btn btn-sm btn-info" routerLink="/header/items/edit/{{i.itemId}}">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>

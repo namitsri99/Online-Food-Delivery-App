@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Cart List</h3>
+    <!-- For displaying the message during loading -->
+    <app-msgbox *ngIf="!err && !userCart && !userOrders">
+        <strong>Loading... Please Wait....</strong>
+    </app-msgbox>
+    <!-- For displaying the message when data cannot be retrieved -->
+    <app-msgbox *ngIf="err" [isError]="true">
+        <strong>{{ err }}</strong>
+    </app-msgbox>
+
+    <table class="table table-bordered table table-success table-striped table-hover" style="text-align: center;" *ngIf="userCart && userOrders">
+        <thead class="table-dark">
+            
+<!-- Specifying the respective coloumn headings -->
+            <tr>
+                <th>Cart ID</th>
+                <th>Order Id</th>
+                <th>Order Date </th>
+                <th>Order Details</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- For displaying data into respective fields of table -->
+            <tr *ngFor="let o of userOrders">
+                <td>{{ userCart.cartId }} </td>
+                <td>{{ o.orderId }}</td>
+                <td>{{ o.orderDate }}</td>
+                <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/uorders/orderList/{{ o.orderId }}" >View Order Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

@@ -1,0 +1,134 @@
+<!-- <div class="col-sm-6 mx-auto">
+
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+        <h1> Register User </h1>
+        <small class="text-danger">{{ msg }}</small>
+    <div class="form-group">
+        <label class="form-control-label">User Id:</label>
+        <input type="number" formControlName="userid" class="form-control"  /> 
+       
+    </div>
+
+    <div class="form-group">
+        <label class="form-control-label">User Name:</label>
+        <input type="text" formControlName="userName" class="form-control" />
+        <div class="alert alert-danger" *ngIf="userNamefc.invalid && (userNamefc.touched || userNamefc.dirty)">
+            <span *ngIf="userNamefc.errors.pattern">This field should be valid</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-control-label">Password:</label>
+        <input type="password" formControlName="password" class="form-control" />
+        <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+            <span *ngIf="passwordfc.errors.pattern">This field should be valid</span>
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        <label class="form-control-label">Customer Id:</label>
+        <input type="number" formControlName="customerId" class="form-control" />
+        <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+            <span *ngIf="customerIdfc.errors.required">This field should be valid</span>
+        </div>
+    </div>
+
+    <button class="btn btn-block btn-primary" [disabled]="loginForm.invalid">
+        Register
+    </button>
+
+    &nbsp;&nbsp;&nbsp;
+    <a routerLink="/login/signin">
+    <button class="btn btn-block btn-primary">
+        Login
+
+    </button>Existing User?</a>
+
+    </form>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="signin">
+      <div class="back-img">
+        <div class="sign-in-text">
+            <h2 class="nonactive"  routerLink="/login/signin">Sign In</h2>
+            <h2 class="active">Register</h2>
+        </div><!--/.sign-in-text-->
+        <div class="layer">
+        </div><!--/.layer-->
+        <p class="point">&#9650;</p>
+      </div><!--/.back-img-->
+      <div class="form-section">
+       
+        <form  class="form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+            <small class="text-danger">{{ msg }}</small>
+
+          <!--User Id-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <label class="mdl-textfield__label" class="form-control-label" ></label>
+            <input class="mdl-textfield__input" type="number" formControlName="userid" class="form-control" placeholder="User Id">
+            <!-- <div class="alert alert-danger" *ngIf="userNamefc.invalid && (userNamefc.touched || userNamefc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="userNamefc.errors.pattern">Enter a correct Email</span>
+            </div> -->
+          </div>
+
+          <!--User Name-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <label class="form-control-label" class="mdl-textfield__label" ></label>
+            <input  class="mdl-textfield__input" type="text" formControlName="userName" class="form-control" placeholder="User Name">
+            <div class="alert alert-danger" *ngIf="userNamefc.invalid && (userNamefc.touched || userNamefc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="userNamefc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+          <!--Password-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <label class="form-control-label" class="mdl-textfield__label" ></label>
+            <input   class="mdl-textfield__input" type="password" formControlName="password" class="form-control" placeholder="Password">
+            <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="passwordfc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+          <!-- Confirm Password
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <label class="form-control-label" class="mdl-textfield__label" for="sample3">Confirm Password</label>
+            <input pattern=".{8,}" formControlName="password2" class="form-control" class="mdl-textfield__input" type="password" id="sample3">
+            <small class="text-danger">{{ msgPass }}</small>
+            <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="passwordfc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+          <br/> -->
+          <!--Customer Id-->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" class="form-group">
+            <label class="form-control-label" class="mdl-textfield__label" >    </label>
+            <input   class="mdl-textfield__input" type="number" formControlName="customerId" class="form-control" placeholder="Customer Id">
+            <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+                <span class="mdl-textfield__error" *ngIf="customerIdfc.errors.pattern">This field should be valid</span>
+            </div>
+          </div>
+         
+    
+        
+      
+      <button id="registerButton" class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" class="btn    btn-block btn-primary" [disabled]="loginForm.invalid">
+        Register
+      </button><!--/button-->
+    </form>
+</div><!--/.form-section-->
+   </div><!--/.signin-->
+  </body>
+

@@ -1,0 +1,53 @@
+<!-- Defining div class -->
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Edit" : "New"}} Bill</h3>
+    
+    
+    <form class="form" [formGroup]="billForm" (ngSubmit)="handleSubmit()">
+        <!-- Adding respective form-control-label -->
+        <div class="form-group">
+            <label class="form-control-label">Bill Id:</label>
+            <input type="number" formControlName="billId" class="form-control" />
+            </div>
+            
+       
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Order:</label>
+            <input type="number" formControlName="orderId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="orderfc.invalid && (orderfc.touched || orderfc.dirty)">
+                <span *ngIf="orderfc.errors.required">This field is mandate</span>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Total Item :</label>
+            <input type="number" formControlName="totalItem" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.totalItemfc.invalid && (this.totalItemfc.touched || this.totalItemfc.dirty)">
+                <span *ngIf="totalItemfc.errors.required">This field is mandate</span>
+            </div>
+        </div>
+        <div class="form-group">
+           <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Total Cost  :</label>
+            <input type="number" formControlName="totalCost" class="form-control" />
+            <div class="alert alert-danger" *ngIf="totalCostfc.invalid && (totalCostfc.touched || orderfc.dirty)">
+                <span *ngIf="totalCostfc.errors.required">This field is mandate</span>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Adding respective form-control-label and performing validations -->
+            <label class="form-control-label">Bill Date :</label>
+            <input type="date" formControlName="billDate" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.billDatefc.invalid && (this.billDatefc.touched || this.billDatefc.dirty)">
+                <span *ngIf="billDatefc.errors.required">This field is mandate</span>
+            </div>
+        </div>
+        <!-- Creating a Save button for saving the entries  -->
+    <button class="btn btn-block btn-primary" [disabled]="billForm.invalid">
+            Save
+        </button>
+    </form>
+</div>

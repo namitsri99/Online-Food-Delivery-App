@@ -1,0 +1,60 @@
+<!-- Defining div class -->
+<div class="container">
+<h3>Restaurant List</h3>
+<app-msgbox *ngIf="!err && !restaurants">
+    <!-- For displaying the message during loading -->
+    <strong>Loading... Please Wait....</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+<table class="table table-bordered table table-success table-striped table-hover" *ngIf=restaurants>
+    <thead class="table-dark">
+        <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <th>Restaurant ID</th>
+            <th>RestaurantName</th>
+            <th>Item List</th>
+            <th>Manager Name</th>
+            <th>Contact Number</th>
+            <th>Area</th>
+            <th>BuildingName</th>
+            <th>City</th>
+            <th>Street Name</th>
+            <th>PostalCode</th>
+            <th>State</th>
+            <th>Country</th>
+            <th colspan="2"> Action</th>
+           
+        </tr>
+    </thead> 
+    <tbody>
+        <!-- For displaying data into respective fields of table -->
+        <tr *ngFor="let r of restaurants">
+            <td>{{r.restaurantId}}</td>
+            <td>{{r.restaurantName}}</td>
+            <td>{{r.itemId}}</td>
+            <td>{{r.managerName}}</td>
+            <td>{{r.contactNumber}}</td>
+            <td>{{r.address.area}}</td>
+            <td>{{r.address.buildingName}}</td>
+            <td>{{r.address.city}}</td>
+            <td>{{r.address.streetNo}}</td>
+            <td>{{r.address.pincode}}</td>
+            <td>{{r.address.state}}</td>
+            <td>{{r.address.country}}</td>
+            <!-- Delete button to delete a particular entry -->
+            <td><button class="btn btn-sm btn-danger" (click)="delete(r.restaurantId)">Delete</button></td>
+            <!-- Edit button to edit a particular entry -->
+            <td><a class="btn btn-sm btn-info" routerLink="/header/restaurants/edit/{{r.restaurantId}}">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+                
+
+
+        

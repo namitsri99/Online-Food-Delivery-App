@@ -1,0 +1,39 @@
+<div class="container">
+<h3>Bill List</h3>
+<!-- For displaying message during loading -->
+<app-msgbox *ngIf="!err && !bills">
+    <strong>loading ... please wait ...</strong>
+</app-msgbox>
+<!-- For displaying message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{err}}</strong>
+</app-msgbox>
+
+<table class="table table-bordered table table-success table-striped table-hover" *ngIf="bills">
+    <thead class="table-dark">
+        <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <th>Bill ID</th>
+            <th>Order</th>
+            <th>Total Item</th>
+            <th>Total Cost</th>
+            <th>Bill Date</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- For entering data into respective fields of table -->
+        <tr *ngFor="let b of bills">
+            <td>{{ b.billId }} </td>
+            <td>{{ b.orderId }} </td>
+            <td>{{ b.totalItem }} </td>
+            <td>{{ b.totalCost }} </td>
+            <td>{{ b.billDate }} </td>
+            <!-- Delete button to delete a particular entry -->
+            <td><button class="btn btn-sm btn-danger" (click)="delete(b.billId)">Delete</button></td>
+            <!-- Edit button to edit a particular entry -->
+            <td><a class="btn btn-sm btn-info" routerLink="/header/bills/edit/{{b.billId}}">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>

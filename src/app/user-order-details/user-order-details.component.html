@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <h3>Order List</h3>
+    <!-- For displaying the message during loading -->
+    <app-msgbox *ngIf="!err && !userOrder">
+        <strong>Loading... Please Wait....</strong>
+    </app-msgbox>
+    <!-- For displaying the message when data cannot be retrieved -->
+    <app-msgbox *ngIf="err" [isError]="true">
+        <strong>{{ err }}</strong>
+    </app-msgbox>
+
+    <table class="table table-bordered table table-success table-striped table-hover" *ngIf="userOrder">
+        <thead class="table-dark">
+            <!-- Specifying the respective coloumn headings -->
+            <tr>
+                <th>Order ID</th>
+                <th>Order Date</th>
+                <th>Order Status </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- For displaying data into respective fields of table -->
+            <tr>
+                <td>{{ userOrder.orderId }} </td>
+                <td>{{ userOrder.orderDate }}</td>
+                <td>{{ userOrder.orderStatus }}</td>
+                <!-- <td><button class="btn btn-sm btn-warning" routerLink="/userHeader/uorders/orderList/{{ o.orderId }}" >View Order Details</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    

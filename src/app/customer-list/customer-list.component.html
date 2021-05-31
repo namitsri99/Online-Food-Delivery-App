@@ -1,0 +1,60 @@
+<div class="container-fluid">
+<h3>Customer List</h3>
+
+<!-- For displaying the message during loading -->
+<app-msgbox *ngIf="!err && !cust">
+    <strong>Loading... Please Wait....</strong>
+</app-msgbox>
+<!-- For displaying the message when data cannot be retrieved -->
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+
+<table class="table table-bordered table table-success table-striped table-hover" *ngIf="cust">
+    <thead class="table-dark">
+        <!-- Specifying the respective coloumn headings -->
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Building</th>
+            <th>Area</th>
+            <th>Street No</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Pincode</th>
+            <th colspan="2">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- For displaying data into respective fields of table -->
+        <tr *ngFor="let e of cust">
+            <td>{{ e.customerId }} </td>
+            <td>{{ e.firstName }} </td>
+            <td>{{ e.lastName }} </td>
+            <td>{{ e.gender }} </td>
+            <td>{{ e.age }} </td>
+            <td>{{ e.mobileNumber }} </td>
+            <td>{{ e.email }} </td>
+            <td>{{ e.address.buildingName  }}</td>
+            <td>{{ e.address.area }}</td>
+            <td>{{ e.address.streetNo }}</td>
+            <td>{{ e.address.city }}</td>
+            <td>{{ e.address.state }}</td>
+            <td>{{ e.address.country }}</td>
+            <td>{{ e.address.pincode }}</td>
+            <!-- Delete button to delete a particular entry -->
+            <td><button class="btn btn-sm btn-danger" (click)="delete(e.customerId)">Delete</button></td>
+            
+             <!-- Edit button to edit a particular entry -->
+            <td><a class="btn btn-sm btn-info" routerLink="/header/customers/edit/{{e.customerId}}">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
